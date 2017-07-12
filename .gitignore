@@ -1,1 +1,4 @@
-.idea/*
+# webstorm mac
+.idea
+.idea/
+.DS_Store
