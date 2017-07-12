@@ -1,0 +1,403 @@
+<!--<#assign chkfileExits= "com.secoo.foms.utils.FreemarkerExtendChkFileFunction"?new()>-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale = 1.0, user-scalable=0">
+  <title>提现奖励金</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: STHeiti,Helvetica Neue;
+    }
+    /*适配320 360 375 384 414*/
+    @media screen and (min-width: 320px) {
+      html {
+        font-size: 16px;
+      }
+    }
+    @media screen and (min-width: 360px) {
+      html {
+        font-size: 18px;
+      }
+    }
+    @media only screen and (min-width: 375px) and (max-width: 383px) and (orientation: portrait) {
+      html {
+        font-size: 18.75px;
+      }
+    }
+    @media only screen and (min-width: 384px) and (max-width: 413px) and (orientation: portrait) {
+      html {
+        font-size: 19.2px;
+      }
+    }
+    @media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+      html {
+        font-size: 20.7px;
+      }
+    }
+    .header_inner {
+      display: -webkit-box;
+      height: 2.32rem;
+    }
+    .page_title {
+      font-size: .906rem;
+      -webkit-box-flex: 1;
+    }
+    .page_title,
+    .go_right {
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+    }
+    .go_left {
+      background: url('//mpic.secooimg.com/images/2016/01/15/new_pro_08.png') no-repeat center;
+      background-size: 1.12rem 1.17333333rem;
+    }
+    .go_left,
+    .go_right {
+      width: 2.32rem;
+      height: 2.32rem;
+    }
+    .activtyApp_c{
+      background:#fff;
+    }
+    img{
+      width:100%;
+      height:100%;
+      display:-webkit-box;
+    }
+    .form_container{
+      width:18.4rem;
+      margin:0 auto;
+    }
+    * {
+      tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .inField_box{
+      width:100%;
+      height:3.733rem;
+      position:relative;
+    }
+    .inField_wrap{
+      width:100%;
+      height:2.987rem;
+      position:relative;
+      border-bottom:1px solid #ddd;
+      border-bottom:0.7px solid #ddd;
+      -webkit-transition: background-color .5s linear;
+    }
+    .inField_box input{
+      width: 90%;
+      border: 0px;
+      background: transparent;
+      height: 100%;
+      outline: none;
+      font-size: 0.906rem;
+      position: relative;
+      color:#1A191E;
+      padding:0;
+      padding-top: .4rem;
+      -webkit-box-sizing: border-box;
+    }
+    .inField_box.focus .inField_wrap{
+      border-bottom:1px solid #1A191E;
+    }
+    .tips_ps{
+      height:0.746rem;
+      position:relative;
+    }
+    .tips_ps span{
+      font-size: 0.906rem;
+      color:#bbb;
+      display: block;
+      position:absolute;
+      left:0;
+      top:0;
+      -webkit-transform: translateY(1.2rem);
+      -webkit-transition: transform .5s cubic-bezier(.56,.21,.13,.86);
+    }
+    .inField_box.selected .tips_ps span{
+      -webkit-transform: translateY(0.7rem);
+      font-size:14px;
+    }
+    .clear_inField{
+      position:absolute;
+      right:0;
+      top:0;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      height:100%;
+    }
+    .clear_inField span{
+      width:0.8rem;
+      height:0.8rem;
+      display:none;
+      position:relative;
+    }
+    .clear_inField span::after,.show_inField span::after{
+      position: absolute;
+      left: -.7rem;
+      top: -.5rem;
+      width: 2rem;
+      height: 2rem;
+      content: "";
+      display:block;
+    }
+    .other_ref{
+      position:absolute;
+      right:0;
+      top:0;
+      height:100%;
+      display:-webkit-box;
+      -webkit-box-align:center;
+    }
+    .other_ref span{
+      width:0.826rem;
+      height:0.826rem;
+      display:block;
+    }
+    .bounty_info{
+      display:-webkit-box;
+      font-size:14px;
+      -webkit-box-pack:justify;
+      height:2.88rem;
+      -webkit-box-align:center;
+    }
+    .bounty_price{
+      color:#1A191E;
+    }
+    .bounty_get{
+      color:#BEA474;
+    }
+    .confirm_btn{
+      width:100%;
+      height:2.4rem;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      -webkit-box-pack:center;
+      color:#fff;
+      background:#000;
+      font-size:0.853rem;
+      border-radius:0.106rem;
+    }
+    .confirm_btn.dis_light{
+      background:#ddd;
+    }
+    .confirm_btn:active:not(.dis_light){
+      background:#2E2D31;
+    }
+    .inField_value{
+      width: 100%;
+      height: 100%;
+      font-size: 0.906rem;
+      position: relative;
+      color: #1A191E;
+      -webkit-box-sizing: border-box;
+      display:none;
+      -webkit-box-align:center;
+      padding-top: .4rem;
+      -webkit-box-sizing: border-box;
+    }
+    .clear_inField span.selected{
+      display:-webkit-box;
+    }
+    .inField_box.selected .inField_value{
+      display:-webkit-box;
+    }
+    .inField_section{
+      width:100%;
+      height:100%;
+      border-bottom: 1px solid #ddd;
+      border-bottom: 0.7px solid #ddd;
+    }
+    .inField_panel{
+      width:100%;
+      height:100%;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      font-size: 0.906rem;
+      width: 18.4rem;
+      margin: 0 auto;
+      position:relative;
+    }
+    .inField_panel > div{
+      display:none;
+    }
+    .inField_box.selected .inField_default{
+      display:none;
+    }
+    .inField_box.selected .inField_ok{
+      display:block;
+    }
+    .inField_box  div.inField_default{
+      display:block;
+      color:#bbb;
+    }
+    .inField_ok{
+      color:#1A191E;
+      display:none;
+    }
+    .inField_default span{
+      width:0.826rem;
+      height:0.826rem;
+    }
+    .inField_ok span{
+      width:0.426rem;
+      height:0.8rem;
+    }
+  </style>
+</head>
+<body uuid="page_app_${sectionid?c}" class="notLazyload">
+<div class="header_inner">
+  <div class="go_left"></div>
+  <div class="page_title">提现奖励金</div>
+  <div class="go_right"></div>
+</div>
+<section class="activtyApp_c" style="font-size: 0;" >
+  <div class="inField_box" id="addBankCard">
+    <div class="inField_section">
+      <div class="inField_panel">
+        <div class="inField_default">
+          <div class="other_content">请添加银行卡</div>
+          <div class="other_ref"><span><img src="//mpic.secooimg.com/images/2017/06/19/tian@2x.png"/></span></div>
+        </div>
+        <div class="inField_ok">
+          <div class="other_content">中国银行借记卡(0000)</div>
+          <div class="other_ref"><span><img src="//mpic.secooimg.com/images/2017/06/19/rectangle2x.png"/></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="inField_box">
+      <div class="tips_ps">
+        <span>请输入申请人姓名</span>
+      </div>
+      <div class="inField_wrap">
+        <input type="text" name="applyUserName">
+        <div class="clear_inField">
+          <span><img src="//mpic.secooimg.com/images/2017/05/10/global_delete.png"/></span>
+        </div>
+      </div>
+    </div>
+    <div class="inField_box">
+      <div class="tips_ps">
+        <span>请输入提现金额（最多5次/天）</span>
+      </div>
+      <div class="inField_wrap">
+        <input type="tel" name="gainPrice">
+        <div class="clear_inField">
+          <span><img src="//mpic.secooimg.com/images/2017/05/10/global_delete.png"/></span>
+        </div>
+      </div>
+    </div>
+    <div class="bounty_info">
+      <div class="bounty_price">可提现总金额 ¥1000</div>
+      <div class="bounty_get">提取全部</div>
+    </div>
+    <div class="confirm_btn dis_light">确定</div>
+  </div>
+</section>
+<div special-share data-share-title="" data-share-url="" data-share-description="" data-share-img-url=""></div>
+<script type="text/javascript" src="//mstatic.secooimg.com/activityJS/app_activity_new_https_2017_min.js"></script>
+<script>
+  loadJs.init({
+    js : {
+      "ios" :
+        [
+          '//mstatic.secooimg.com/js/zepto.min.js',
+          '//mstatic.secooimg.com/js/comm.js',
+          '//mstatic.secooimg.com/activityJS/ios_activity_min.js'
+        ],
+      "android" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/android_activity_min.js'
+      ],
+      "wap" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/wap_activity_min.js'
+      ]
+    },
+    callback : function(){
+      var inFields = $(".inField_box input"),
+        confirm_btn = $(".confirm_btn"),
+        addBankCard = $("#addBankCard");
+      inFields.each(function(){
+        var dThis = $(this),
+          val = $.trim(dThis.val());
+        if(val != "") {
+          dThis.closest(".inField_box").addClass("selected");
+        }
+      });
+      inFields.on({
+        "focus":function(){
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          if(val == "") {
+            dThis.closest(".inField_box").addClass("selected");
+          }
+          dThis.closest(".inField_box").addClass("focus");
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",val != "");
+          }
+        },
+        "blur": function () {
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          dThis.val(val);
+          if(val == ""){
+            dThis.closest(".inField_box").removeClass("selected");
+          }
+          dThis.closest(".inField_box").removeClass("focus");
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",false);
+          }
+        },
+        "input":function(){
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          if(val == ""){
+            dThis.val("");
+          }
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",val != "");
+          }
+          BtnProcess();
+        }
+      });
+      // 按钮处理
+      function BtnProcess(){
+        var btnFlag = false;
+        inFields.each(function(){
+          if($(this).val() == ""){
+            btnFlag = true;
+            return false;
+          }
+        });
+        if(!addBankCard.hasClass("selected")){
+          btnFlag = true;
+        }
+        confirm_btn.toggleClass("dis_light",btnFlag);
+      }
+      // 清空输入框内容
+      Comm.eventBind(".clear_inField span",function(_thisObj){
+        _thisObj.parent().siblings("input").val("").trigger("focus");
+        _thisObj.removeClass("selected");
+        confirm_btn.toggleClass("dis_light",true);
+      });
+
+      // 确定按钮
+      Comm.eventBind("#addBankCard",function(_thisObj){
+        _thisObj.toggleClass("selected");
+        BtnProcess();
+      });
+    }
+  })
+</script>
+</body>
+</html>

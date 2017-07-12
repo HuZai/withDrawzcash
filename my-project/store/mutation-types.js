@@ -1,0 +1,5 @@
+export const GET_BANK_INFO = 'GET_BANK_INFO'
+export const ADD_BANK_INFO = 'ADD_BANK_INFO'
+export const UPDATE_BANK_INFO = 'UPDATE_BANK_INFO'
+export const GET_BANK_LIST = 'GET_BANK_LIST'
+

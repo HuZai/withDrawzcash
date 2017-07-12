@@ -1,0 +1,184 @@
+<!--<#assign chkfileExits= "com.secoo.foms.utils.FreemarkerExtendChkFileFunction"?new()>-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale = 1.0, user-scalable=0">
+  <title>选择银行</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: STHeiti,Helvetica Neue;
+    }
+    /*适配320 360 375 384 414*/
+    @media screen and (min-width: 320px) {
+      html {
+        font-size: 16px;
+      }
+    }
+    @media screen and (min-width: 360px) {
+      html {
+        font-size: 18px;
+      }
+    }
+    @media only screen and (min-width: 375px) and (max-width: 383px) and (orientation: portrait) {
+      html {
+        font-size: 18.75px;
+      }
+    }
+    @media only screen and (min-width: 384px) and (max-width: 413px) and (orientation: portrait) {
+      html {
+        font-size: 19.2px;
+      }
+    }
+    @media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+      html {
+        font-size: 20.7px;
+      }
+    }
+    .header_inner {
+      display: -webkit-box;
+      height: 2.32rem;
+    }
+    .page_title {
+      font-size: .906rem;
+      -webkit-box-flex: 1;
+    }
+    .page_title,
+    .go_right {
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+    }
+    .go_left {
+      background: url('//mpic.secooimg.com/images/2016/01/15/new_pro_08.png') no-repeat center;
+      background-size: 1.12rem 1.17333333rem;
+    }
+    .go_left,
+    .go_right {
+      width: 2.32rem;
+      height: 2.32rem;
+    }
+    .activtyApp_c{
+      background:#fff;
+    }
+    img{
+      width:100%;
+      height:100%;
+      display:-webkit-box;
+    }
+    * {
+      tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .form_container{
+      width:100%;
+    }
+    .bank_list dt{
+      width:100%;
+      height:1.6rem;
+      background: #EEEEEE;
+      text-indent:1.2rem;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      color:#1A191E;
+      font-size:0.746rem;
+    }
+    .bank_list dd{
+      width:100%;
+    }
+    .bank_list ul{
+      width:17.866rem;
+      margin:0 auto;
+      display:-webkit-box;
+      -webkit-box-orient: vertical;
+    }
+    .bank_list li{
+      display:-webkit-box;
+      height:3.733rem;
+      -webkit-box-align:center;
+      border-bottom: 1px solid #ddd;
+      border-bottom: 0.7px solid #ddd;
+    }
+    .bank_list li:last-child{
+      border:0;
+    }
+    .bank_list li div{
+      width:1.6rem;
+      height:1.6rem;
+      background:pink;
+    }
+    .bank_list li span{
+      color:#1A191E;
+      margin-left:0.8rem;
+      font-size:0.853rem;
+    }
+  </style>
+</head>
+<body uuid="page_app_${sectionid?c}" class="notLazyload">
+<div class="header_inner">
+  <div class="go_left"></div>
+  <div class="page_title">选择银行</div>
+  <div class="go_right"></div>
+</div>
+<section class="activtyApp_c" style="font-size: 0;" >
+  <div class="form_container">
+    <dl class="bank_list">
+      <dt>A</dt>
+      <dd>
+        <ul>
+          <li>
+            <div></div>
+            <span>中国银行</span>
+          </li>
+          <li>
+            <div></div>
+            <span>中国银行</span>
+          </li>
+        </ul>
+      </dd>
+      <dt>B</dt>
+      <dd>
+        <ul>
+          <li>
+            <div></div>
+            <span>中国银行</span>
+          </li>
+          <li>
+            <div></div>
+            <span>中国银行</span>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</section>
+<div special-share data-share-title="" data-share-url="" data-share-description="" data-share-img-url=""></div>
+<script type="text/javascript" src="//mstatic.secooimg.com/activityJS/app_activity_new_https_2017_min.js"></script>
+<script>
+  loadJs.init({
+    js : {
+      "ios" :
+        [
+          '//mstatic.secooimg.com/js/zepto.min.js',
+          '//mstatic.secooimg.com/js/comm.js',
+          '//mstatic.secooimg.com/activityJS/ios_activity_min.js'
+        ],
+      "android" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/android_activity_min.js'
+      ],
+      "wap" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/wap_activity_min.js'
+      ]
+    },
+    callback : function(){
+      Comm.eventBind(".bank_list li",function(){
+
+      });
+    }
+  })
+</script>
+</body>
+</html>

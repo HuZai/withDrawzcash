@@ -1,0 +1,345 @@
+<!--<#assign chkfileExits= "com.secoo.foms.utils.FreemarkerExtendChkFileFunction"?new()>-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale = 1.0, user-scalable=0">
+  <title>提现奖励金</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: STHeiti,Helvetica Neue;
+    }
+    /*适配320 360 375 384 414*/
+    @media screen and (min-width: 320px) {
+      html {
+        font-size: 16px;
+      }
+    }
+    @media screen and (min-width: 360px) {
+      html {
+        font-size: 18px;
+      }
+    }
+    @media only screen and (min-width: 375px) and (max-width: 383px) and (orientation: portrait) {
+      html {
+        font-size: 18.75px;
+      }
+    }
+    @media only screen and (min-width: 384px) and (max-width: 413px) and (orientation: portrait) {
+      html {
+        font-size: 19.2px;
+      }
+    }
+    @media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+      html {
+        font-size: 20.7px;
+      }
+    }
+    .header_inner {
+      display: -webkit-box;
+      height: 2.32rem;
+    }
+    .page_title {
+      font-size: .906rem;
+      -webkit-box-flex: 1;
+    }
+    .page_title,
+    .go_right {
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+    }
+    .go_left {
+      background: url('//mpic.secooimg.com/images/2016/01/15/new_pro_08.png') no-repeat center;
+      background-size: 1.12rem 1.17333333rem;
+    }
+    .go_left,
+    .go_right {
+      width: 2.32rem;
+      height: 2.32rem;
+    }
+    .activtyApp_c{
+      background:#fff;
+    }
+    img{
+      width:100%;
+      height:100%;
+      display:-webkit-box;
+    }
+    .form_container{
+      width:18.4rem;
+      margin:0 auto;
+    }
+    * {
+      tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .inField_box{
+      width:100%;
+      height:3.733rem;
+      position:relative;
+    }
+    .inField_wrap{
+      width:100%;
+      height:2.987rem;
+      position:relative;
+      border-bottom:1px solid #ddd;
+      border-bottom:0.7px solid #ddd;
+      -webkit-transition: background-color .5s linear;
+    }
+    .inField_box input{
+      width: 90%;
+      border: 0px;
+      background: transparent;
+      height: 100%;
+      outline: none;
+      font-size: 0.906rem;
+      position: relative;
+      color:#1A191E;
+      padding:0;
+      padding-top: .4rem;
+      -webkit-box-sizing: border-box;
+    }
+    .inField_box.focus .inField_wrap{
+      border-bottom:1px solid #1A191E;
+    }
+    .tips_ps{
+      height:0.746rem;
+      position:relative;
+    }
+    .tips_ps span{
+      font-size: 0.906rem;
+      color:#bbb;
+      display: block;
+      position:absolute;
+      left:0;
+      top:0;
+      -webkit-transform: translateY(1.2rem);
+      -webkit-transition: transform .5s cubic-bezier(.56,.21,.13,.86);
+    }
+    .inField_box.selected .tips_ps span{
+      -webkit-transform: translateY(0.7rem);
+      font-size:14px;
+    }
+    .clear_inField{
+      position:absolute;
+      right:0;
+      top:0;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      height:100%;
+    }
+    .clear_inField span{
+      width:0.8rem;
+      height:0.8rem;
+      display:none;
+      position:relative;
+    }
+    .clear_inField span::after,.show_inField span::after{
+      position: absolute;
+      left: -.7rem;
+      top: -.5rem;
+      width: 2rem;
+      height: 2rem;
+      content: "";
+      display:block;
+    }
+    .clear_inField span.selected{
+      display:-webkit-box;
+    }
+    .confirm_btn{
+      width:100%;
+      height:2.4rem;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      -webkit-box-pack:center;
+      color:#fff;
+      background:#000;
+      font-size:0.853rem;
+      border-radius:0.106rem;
+      margin-top:6.64rem;
+    }
+    .confirm_btn.dis_light{
+      background:#ddd;
+    }
+    .confirm_btn:active:not(.dis_light){
+      background:#2E2D31;
+    }
+    #getMsgCode{
+      height:100%;
+      position:absolute;
+      right:0;
+      top:0;
+      display:-webkit-box;
+      -webkit-box-align:center;
+    }
+    #getMsgCode span{
+      width:5.6rem;
+      height:2.133rem;
+      display:-webkit-box;
+      -webkit-box-align:center;
+      -webkit-box-pack:center;
+      background: #ddd;
+      font-size:0.746rem;
+      color:#fff;
+      border-radius:0.106rem;
+    }
+    #getMsgCode span.selected{
+      background: #1A191E;
+    }
+    #getMsgCode span.dis_btn_time{
+      background: #ddd;
+    }
+    #messageCode input{
+      width:60%;
+    }
+  </style>
+</head>
+<body uuid="page_app_${sectionid?c}" class="notLazyload">
+<div class="header_inner">
+  <div class="go_left"></div>
+  <div class="page_title">提现奖励金</div>
+  <div class="go_right"></div>
+</div>
+<section class="activtyApp_c" style="font-size: 0;" >
+  <div class="form_container">
+    <div class="inField_box">
+      <div class="tips_ps">
+        <span>请输入手机号</span>
+      </div>
+      <div class="inField_wrap">
+        <input type="tel" name="telephone">
+        <div class="clear_inField">
+          <span><img src="//mpic.secooimg.com/images/2017/05/10/global_delete.png"/></span>
+        </div>
+      </div>
+    </div>
+    <div class="inField_box" id="messageCode">
+      <div class="tips_ps">
+        <span>请输入验证码</span>
+      </div>
+      <div class="inField_wrap">
+        <input type="tel" name="gainPrice">
+      </div>
+      <div id="getMsgCode">
+        <span>获取验证码</span>
+      </div>
+    </div>
+    <div class="confirm_btn dis_light">立即提现</div>
+  </div>
+</section>
+<div special-share data-share-title="" data-share-url="" data-share-description="" data-share-img-url=""></div>
+<script type="text/javascript" src="//mstatic.secooimg.com/activityJS/app_activity_new_https_2017_min.js"></script>
+<script>
+  loadJs.init({
+    js : {
+      "ios" :
+        [
+          '//mstatic.secooimg.com/js/zepto.min.js',
+          '//mstatic.secooimg.com/js/comm.js',
+          '//mstatic.secooimg.com/activityJS/ios_activity_min.js'
+        ],
+      "android" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/android_activity_min.js'
+      ],
+      "wap" : ['//mstatic.secooimg.com/js/zepto.min.js',
+        '//mstatic.secooimg.com/activityJS/wap_activity_min.js'
+      ]
+    },
+    callback : function(){
+      var inFields = $(".inField_box input"),
+        confirm_btn = $(".confirm_btn"),
+        addBankCard = $("#addBankCard"),
+        getMsgCode = $("#getMsgCode span");
+      inFields.each(function(){
+        var dThis = $(this),
+          val = $.trim(dThis.val());
+        if(val != "") {
+          dThis.closest(".inField_box").addClass("selected");
+        }
+      });
+      inFields.on({
+        "focus":function(){
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          if(val == "") {
+            dThis.closest(".inField_box").addClass("selected");
+          }
+          dThis.closest(".inField_box").addClass("focus");
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",val != "");
+          }
+        },
+        "blur": function () {
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          dThis.val(val);
+          if(val == ""){
+            dThis.closest(".inField_box").removeClass("selected");
+          }
+          dThis.closest(".inField_box").removeClass("focus");
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",false);
+          }
+        },
+        "input":function(){
+          var dThis = $(this),
+            val = $.trim(dThis.val());
+          if(val == ""){
+            dThis.val("");
+          }
+          var clear_inField = dThis.siblings(".clear_inField");
+          if(clear_inField.length){
+            clear_inField.children("span").toggleClass("selected",val != "");
+          }
+          BtnProcess();
+        }
+      });
+      // 按钮处理
+      function BtnProcess(){
+        var btnFlag = false;
+        inFields.each(function(){
+          if($(this).val() == ""){
+            btnFlag = true;
+            return false;
+          }
+        });
+        getMsgCode.toggleClass("selected",inFields.filter("[name=telephone]").val() != "");
+        confirm_btn.toggleClass("dis_light",btnFlag);
+      }
+      // 清空输入框内容
+      Comm.eventBind(".clear_inField span",function(_thisObj){
+        _thisObj.parent().siblings("input").val("").trigger("focus");
+        _thisObj.removeClass("selected");
+        BtnProcess();
+      });
+      // 确定按钮
+      Comm.eventBind("#addBankCard",function(_thisObj){
+        _thisObj.toggleClass("selected");
+        BtnProcess();
+      });
+
+      // 获取验证码
+      Comm.eventBind("#getMsgCode span",function(_thisObj){
+        if(_thisObj.hasClass("dis_btn") || _thisObj.hasClass("dis_btn_time") || !_thisObj.hasClass("selected")) return;
+        var temp_i = 60;
+        _thisObj.addClass("dis_btn_time").text("重新获取("+temp_i+")");
+        var timer = setInterval(function () {
+          if (temp_i >= 1) {
+            _thisObj.text("重新获取("+(--temp_i)+")");
+          } else {
+            _thisObj.removeClass("dis_btn_time").text("重新获取");
+            clearInterval(timer);
+          }
+        }, 1000);
+      });
+    }
+  })
+</script>
+</body>
+</html>
